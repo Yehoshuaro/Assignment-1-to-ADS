@@ -1,32 +1,28 @@
 import java.util.Scanner;
 
 public class Main {
-    public static int Sum_Function(int n) {
-        if (n == 0) {
-            return 0;
-        } else {
-            return n * n + Sum_Function(n - 1);
-        }
-    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter n: ");
-        int n = scanner.nextInt();
-        int sum = Sum_Function(n);
+        System.out.print("Array size: ");
+        int size = scanner.nextInt();
 
-        String output = "";
-        for (int i = 1; i <= n; i++) {
-            output += i + "^2";
-            if (i < n) {
-                output += " + ";
-            }
+        int[] arr = new int[size];
+
+        for (int a = 0; a < size; a++) {
+            System.out.print("Enter " + (a + 1) + " element: ");
+            arr[a] = scanner.nextInt();
         }
-        output += " = " + sum;
 
+        System.out.print("Enter n: ");
+        int n = scanner.nextInt();
 
-        System.out.println(output);
+        int sum = 0;
+        for (int x = 0; x < n; x++) {
+            sum += arr[x];
+        }
+
+        System.out.println(sum);
     }
 }
-
