@@ -2,27 +2,21 @@ import java.util.Scanner;
 
 public class Main {
 
+    public static int PositiveSum(int n) {
+        if (n == 0) {
+            return 0;
+        } else {
+            return n + PositiveSum(n - 1);
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Array size: ");
-        int size = scanner.nextInt();
-
-        int[] arr = new int[size];
-
-        for (int a = 0; a < size; a++) {
-            System.out.print("Enter " + (a + 1) + " element: ");
-            arr[a] = scanner.nextInt();
-        }
-
-        System.out.print("Enter n: ");
+        System.out.print("Enter any n: ");
         int n = scanner.nextInt();
 
-        int sum = 0;
-        for (int x = 0; x < n; x++) {
-            sum += arr[x];
-        }
-
+        int sum = PositiveSum(n);
         System.out.println(sum);
     }
 }
