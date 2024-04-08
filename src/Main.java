@@ -1,22 +1,26 @@
 import java.util.Scanner;
 
 public class Main {
-
-    public static int PositiveSum(int n) {
-        if (n == 0) {
-            return 0;
-        } else {
-            return n + PositiveSum(n - 1);
-        }
-    }
+    // Just trying to understand the syntax logic of the task
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter any n: ");
+        System.out.print("Enter b: ");
+        int b = scanner.nextInt();
+
+        System.out.print("Enter n: ");
         int n = scanner.nextInt();
 
-        int sum = PositiveSum(n);
-        System.out.println(sum);
+        int sum = 0;
+        for (int a = 0; a <= n; a++) {
+            sum += Math.pow(b, a);
+        }
+
+        System.out.print(b + "^0 + " + b + "^1 + ");
+        for (int x = 2; x < n; x++) {
+            System.out.print(b + "^" + x + " + ");
+        }
+        System.out.println(b + "^" + n + " = " + sum);
     }
 }
