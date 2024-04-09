@@ -7,17 +7,21 @@ public class Main {
 
         int n = scanner.nextInt();
 
-        Reverse(scanner, n);
+        for (int x = 0; x < n; x++) {
+            StringReverse(scanner.nextLine());
+        }
     }
 
-    public static void Reverse(Scanner scanner, int n) {
-        if (n == 0) {
+    private static void StringReverse(String str) {
+        //Не прям понял, как здесь можно сделать значение с Null, чтобы все работало, но вроде сойдет и так
+        if (str.isEmpty()) {
             return;
         }
 
-        int current = scanner.nextInt();
-        Reverse(scanner, n - 1);
-        System.out.print(current + " ");
+        //here I also don't understand at all, how to do it right
+        char RevEntStr = str.charAt(str.length() - 1);
+        System.out.print(RevEntStr);
+
+        StringReverse(str.substring(0, str.length() - 1));
     }
 }
-
