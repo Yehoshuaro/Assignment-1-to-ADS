@@ -1,27 +1,26 @@
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+        System.out.println("Enter n:");
         int n = scanner.nextInt();
-
-        for (int x = 0; x < n; x++) {
-            StringReverse(scanner.nextLine());
-        }
+        System.out.println("Enter k:");
+        int k = scanner.nextInt();
+        Road(new int[n], 0, n, k);
     }
 
-    private static void StringReverse(String str) {
-        //Не прям понял, как здесь можно сделать значение с Null, чтобы все работало, но вроде сойдет и так
-        if (str.isEmpty()) {
+    public static void Road(int[] sequence, int index, int n, int k) {
+        if (index == n) {
+            for (int num : sequence) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
             return;
         }
-
-        //here I also don't understand at all, how to do it right
-        char RevEntStr = str.charAt(str.length() - 1);
-        System.out.print(RevEntStr);
-
-        StringReverse(str.substring(0, str.length() - 1));
+        for (int i = 1; i <= k; i++) {
+            sequence[index] = i;
+            Road(sequence, index + 1, n, k);
+        }
     }
 }
